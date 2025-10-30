@@ -5,41 +5,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Card with Shadow - Task 3</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+        :root {
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --card-border: rgba(255, 255, 255, 0.2);
+            --card-shadow: rgba(0, 0, 0, 0.1);
+            --accent-gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
         body {
             margin: 0;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f5f5f5;
-            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top left, #4f46e5, #7c3aed);
+            font-family: 'Inter', sans-serif;
+            perspective: 1000px;
         }
 
         .card {
             width: 300px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 
+                0 10px 30px var(--card-shadow),
+                0 1px 2px rgba(0,0,0,0.05);
             text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            transform-style: preserve-3d;
+            transition: 
+                transform 0.5s ease,
+                box-shadow 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle,
+                rgba(255,255,255,0.1),
+                transparent 50%
+            );
+            transform: rotate(0deg);
+            animation: rotateGradient 8s linear infinite;
+        }
+
+        .card:hover {
+            transform: 
+                translateY(-10px)
+                rotateX(5deg)
+                rotateY(5deg);
+            box-shadow: 
+                0 20px 40px var(--card-shadow),
+                0 1px 2px rgba(0,0,0,0.05);
         }
 
         .card h2 {
-            color: #333;
+            color: transparent;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-weight: 600;
             margin-top: 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 1;
         }
 
         .card p {
-            color: #666;
-            line-height: 1.6;
+            color: #4b5563;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes rotateGradient {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Add floating particles */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            filter: blur(1px);
         }
     </style>
 </head>
 <body>
     <div class="card">
         <h2>Modern Card</h2>
-        <p>This is a card with box-shadow and text-shadow to make it look like a modern UI element.</p>
+        <p>This is an enhanced card with glassmorphism, 3D transforms, and dynamic lighting effects.</p>
     </div>
+    <script>
+        // Create floating particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random size between 2 and 6 pixels
+            const size = Math.random() * 4 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random starting position
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${Math.random() * 100}vh`;
+            
+            // Add animation
+            particle.style.animation = `
+                fadeIn ${Math.random() * 2 + 1}s ease-out infinite alternate,
+                float ${Math.random() * 3 + 2}s ease-in-out infinite alternate
+            `;
+            
+            document.body.appendChild(particle);
+            
+            // Remove particle after animation
+            setTimeout(() => {
+                particle.remove();
+            }, 5000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 300);
+
+        // Add 3D tilt effect
+        const card = document.querySelector('.card');
+        document.addEventListener('mousemove', (e) => {
+            const { left, top, width, height } = card.getBoundingClientRect();
+            const x = (e.clientX - left) / width;
+            const y = (e.clientY - top) / height;
+            
+            const tiltX = (y - 0.5) * 10;
+            const tiltY = (0.5 - x) * 10;
+            
+            card.style.transform = `
+                translateY(-10px)
+                rotateX(${tiltX}deg)
+                rotateY(${tiltY}deg)
+            `;
+        });
+
+        // Reset card position when mouse leaves
+        document.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(-10px) rotateX(5deg) rotateY(5deg)';
+        });
+    </script>
 </body>
 </html>

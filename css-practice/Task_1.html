@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Box Model - Task 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #0f172a, #1e293b);
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+        }
+
+        .container {
+            perspective: 1000px;
+        }
+
+        .box {
+            width: 300px;
+            padding: 2rem;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,0.1),
+                rgba(255,255,255,0.05)
+            );
+            backdrop-filter: blur(10px);
+            margin: 2rem;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 
+                0 8px 32px rgba(0,0,0,0.3),
+                inset 0 0 32px rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle at center,
+                rgba(255,255,255,0.1) 0%,
+                transparent 70%
+            );
+            animation: shine 4s linear infinite;
+        }
+
+        .box h2 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #38bdf8;
+            text-shadow: 0 0 10px rgba(56,189,248,0.5);
+        }
+
+        .box p {
+            line-height: 1.6;
+            color: rgba(255,255,255,0.8);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotateX(0);
+            }
+            50% {
+                transform: translateY(-20px) rotateX(5deg);
+            }
+        }
+
+        @keyframes shine {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            border-color: rgba(56,189,248,0.3);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h2>Modern Glass Effect</h2>
+            <p>This enhanced box demonstrates modern CSS techniques including:</p>
+            <br>
+            <p>• Glassmorphism effect</p>
+            <p>• Gradient overlays</p>
+            <p>• 3D transformations</p>
+            <p>• Floating animation</p>
+            <p>• Dynamic shine effect</p>
+        </div>
+    </div>
+</body>
+</html>
