@@ -1,0 +1,20 @@
+/* Task 3: Gradient Background Webpage */
+*{box-sizing:border-box}
+body{ margin:0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; color:#072; }
+.site-header, .site-footer{ position:fixed; left:0; right:0; background:rgba(255,255,255,0.9); text-align:center; padding:0.8rem; z-index:10 }
+.site-header{ top:0 }
+.site-footer{ bottom:0 }
+main{ padding-top:64px; padding-bottom:64px }
+
+.linear{ min-height:55vh; display:flex; align-items:center; justify-content:center; color:#fff;
+  background: linear-gradient(90deg,#ff7e5f 10%, #feb47b 50%, #86a8e7 100%);
+}
+.radial{ min-height:55vh; display:flex; align-items:center; justify-content:center; color:#222;
+  background: radial-gradient(circle at center, #f6d365 0%, #fda085 40%, #f6d365 100%);
+  background-attachment: fixed; /* parallax-like */
+}
+.inner{ max-width:900px; padding:2rem; background:rgba(255,255,255,0.15); border-radius:8px }
+
+@media (max-width:700px){
+  .inner{ padding:1rem }
+}

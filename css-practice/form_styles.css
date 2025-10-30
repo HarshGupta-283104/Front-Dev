@@ -1,0 +1,18 @@
+/* Task 9: Outline and Focus Styling Form */
+*{box-sizing:border-box}
+body{ margin:0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; background:#f4f6f8 }
+.form-wrap{ max-width:480px; margin:4rem auto; background:#fff; padding:1.5rem; border-radius:10px; box-shadow:0 6px 16px rgba(11,22,38,0.06) }
+h1{ text-align:center; margin:0 0 1rem }
+form{ display:flex; flex-direction:column; gap:0.85rem }
+label{ display:flex; flex-direction:column; font-size:.95rem; color:#333 }
+input, textarea{ padding:.65rem; border-radius:8px; border:1.5px solid #e6e9ee; transition:box-shadow .18s ease, outline-color .18s ease }
+
+/* Outline styles and offsets */
+input:focus, textarea:focus{ outline:3px solid rgba(102,153,255,0.25); outline-offset:4px; box-shadow:0 6px 18px rgba(50,100,200,0.06) }
+
+/* different outline examples (demonstration) */
+input{ outline:2px solid transparent }
+textarea{ outline:3px dashed rgba(180,180,180,0.18); outline-offset:6px }
+
+button{ padding:.7rem 1rem; border-radius:8px; border:none; background:#2b7a78; color:#fff; cursor:pointer; transition:transform .18s ease, background .18s ease }
+button:hover{ transform:translateY(-3px); background:#246a6a }

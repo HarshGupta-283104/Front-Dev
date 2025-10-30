@@ -1,0 +1,37 @@
+/* Task 5: Advanced CSS Selectors Demonstration */
+*{box-sizing:border-box}
+body{ font-family: 'Segoe UI', Roboto, Arial, sans-serif; margin:0; padding:1rem; background:#fafafa }
+header, footer{ text-align:center; padding:.5rem }
+
+/* Attribute selector: style inputs of type text */
+input[type="text"]{ padding:.5rem; border:2px solid #ccc; border-radius:6px }
+
+/* Attribute starts-with selector: style links that begin with https */
+a[href^="https"]{ color:seagreen; font-weight:600 }
+
+/* Pseudo-classes: hover and focus examples */
+a:hover{ text-decoration:underline }
+input[type="text"]:focus{ outline:3px solid rgba(46,204,113,0.25); outline-offset:4px }
+
+/* nth-child: style alternating list items */
+.items li:nth-child(odd){ background:#fff }
+.items li:nth-child(even){ background:#f0f4ff }
+
+/* pseudo-elements: decorative bullets using ::before */
+.items li{ padding:0.5rem 0.75rem; list-style:none; position:relative }
+.items li::before{ content:"•"; position:absolute; left:-1rem; color:#6c5ce7 }
+
+/* Combinators:
+   >  direct child selector
+   +  adjacent sibling selector
+   ~  general sibling selector
+   (descendant) space for deep descendants
+*/
+main > section { margin:1rem 0; padding:0.75rem; border-radius:6px }
+main > section + section{ border-top:2px solid #eee }
+
+/* adjacent sibling example: style a link that immediately follows the input */
+input + a{ margin-left:1rem; color:#333 }
+
+/* general sibling: style any link after the input in the same container */
+input ~ a{ opacity:.9 }

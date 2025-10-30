@@ -1,0 +1,16 @@
+/* Task 6: Transformations Showcase */
+*{box-sizing:border-box}
+body{ margin:0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; background:#f6f8fb }
+header, footer{ text-align:center; padding:1rem }
+.transforms{ display:flex; gap:1rem; justify-content:center; padding:2rem; flex-wrap:wrap }
+.tbox{ width:140px; text-align:center }
+.demo{ background:#fff; padding:2rem; border-radius:8px; border:1px solid #e3e7ee; transition:all .4s ease; }
+.label{ margin-top:.5rem; font-size:.9rem; color:#555 }
+
+/* hover transformations */
+.rotate .demo:hover{ transform:rotate(12deg) }
+.scale .demo:hover{ transform:scale(1.12) }
+.translate .demo:hover{ transform:translateY(-12px) }
+.skew .demo:hover{ transform:skewX(12deg) }
+
+@media (max-width:600px){ .transforms{ flex-direction:column; align-items:center } }
