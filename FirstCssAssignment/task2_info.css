@@ -1,0 +1,46 @@
+/* Task 2: Multi-section informational page */
+:root{--wrap:1100px;--muted:#f3f4f6;--accent:#ffb703}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI, Roboto, Arial, sans-serif;background:#0b1020;color:#fff}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:2rem}
+
+/* Header */
+.top-header{position:fixed;top:0;left:0;right:0;background:rgba(2,6,23,0.7);z-index:40;border-bottom:1px solid rgba(255,255,255,0.04)}
+.top-header .wrap{display:flex;align-items:center;justify-content:space-between}
+.top-header h1{font-size:1.25rem;margin:0}
+.top-header nav a{color:#fff;text-decoration:none;margin-left:1rem}
+
+main{padding-top:72px}
+
+/* Panels - full width backgrounds */
+.panel{min-height:70vh;display:flex;align-items:center;padding:3rem 0;border-top:1px solid rgba(255,255,255,0.03)}
+.panel .wrap{background:transparent}
+
+/* Intro - background image with fixed attachment (parallax-like) */
+.panel-intro{background-image:url('https://images.unsplash.com/photo-1505765057267-16ff7b5e2f7a?q=80&w=1600&auto=format&fit=crop');background-size:cover;background-position:center;background-attachment:fixed}
+
+/* History - linear gradient */
+.panel-history{background:linear-gradient(120deg, rgba(255,183,3,0.9), rgba(255,87,34,0.85));color:#0b1020}
+
+/* Places - radial gradient + fixed background image */
+.panel-places{background-image:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.06), rgba(255,255,255,0));background-attachment:fixed}
+
+/* Visit - simple solid */
+.panel-visit{background:#071029}
+
+/* Headings with different sizes and weights */
+.panel h2{font-size:2.25rem;font-weight:700;margin:0 0 0.5rem}
+.panel p{font-size:1.125rem;line-height:1.6;margin:0}
+
+/* Spacing, borders are included above in .panel */
+
+/* Footer */
+.page-footer{padding:1.25rem 0;text-align:center;background:#020617}
+
+/* Make sure two panels demonstrate background-attachment fixed - already used for intro and places */
+
+/* Responsive tweaks */
+@media (max-width:700px){
+  .panel{min-height:50vh;padding:2rem}
+  .top-header .wrap{flex-direction:column;gap:0.5rem}
+}

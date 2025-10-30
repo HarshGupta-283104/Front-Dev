@@ -1,0 +1,20 @@
+/* Task 8: Dashboard layout */
+:root{--bg:#f8fafc;--nav:#0f1724;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI, Roboto, Arial, sans-serif;background:var(--bg);color:#111}
+.dash-header{position:fixed;top:0;left:0;right:0;height:56px;background:var(--nav);color:#fff;display:flex;align-items:center;padding:0 1rem;z-index:50}
+.dash-wrapper{display:flex;min-height:100vh;padding-top:56px}
+.sidebar{width:220px;background:#0b1220;color:#fff;padding:1rem;position:sticky;top:56px;height:calc(100vh - 56px)}
+.sidebar nav a{display:block;color:#cbd5e1;text-decoration:none;padding:0.5rem 0}
+.dash-main{flex:1;padding:1.25rem}
+.boxes{display:flex;gap:1rem}
+.box{flex:1;background:var(--card);padding:1.5rem;border-radius:8px;box-shadow:0 8px 24px rgba(2,6,23,0.06)}
+.more{margin-top:1rem;background:var(--card);padding:1rem;border-radius:8px}
+.dash-footer{padding:1rem;text-align:center;background:#e6eef9}
+
+/* On smaller screens, sidebar stacks above content */
+@media (max-width:800px){
+  .dash-wrapper{flex-direction:column}
+  .sidebar{width:100%;position:relative;height:auto}
+  .boxes{flex-direction:column}
+}

@@ -1,0 +1,26 @@
+/* Task 5: Pricing table */
+:root{--bg:#f1f5f9;--card:#ffffff;--accent:#06b6d4;--popular:#fde68a}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI, Roboto, Arial, sans-serif;background:var(--bg);color:#111}
+.pricing-header{padding:2rem;text-align:center}
+.pricing-main{max-width:1100px;margin:0 auto;padding:1rem}
+
+.plans{display:flex;gap:1rem}
+.plan{flex:1;background:var(--card);padding:1.5rem;border:1px solid #e6eef6;border-radius:10px;display:flex;flex-direction:column;align-items:start;justify-content:space-between;transition:transform 250ms ease,background 250ms ease;min-height:300px}
+.plan h2{margin:0 0 0.5rem 0}
+.plan ul{margin:0 0 1rem 1rem}
+.price{font-size:1.5rem;font-weight:700;margin:1rem 0}
+.btn{display:inline-block;padding:0.5rem 1rem;background:#0ea5a4;color:#fff;border-radius:6px;text-decoration:none}
+
+/* Hover effect: enlarge and change background */
+.plan:hover{transform:scale(1.03);background:#f8fafc}
+
+/* Popular highlight */
+.plan.popular{border:2px solid #f59e0b;background:var(--popular)}
+
+/* Equal heights ensured by flex and min-height */
+
+/* Responsive */
+@media (max-width:800px){
+  .plans{flex-direction:column}
+}

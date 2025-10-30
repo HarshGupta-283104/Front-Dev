@@ -1,0 +1,47 @@
+/* Task 10: Complete webpage demonstrating box model & positioning */
+:root{--nav:#071029;--accent:#06b6d4}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI, Roboto, Arial, sans-serif;color:#111}
+
+/* Header - sticky at top */
+.site-header{position:sticky;top:0;background:var(--nav);color:#fff;z-index:40}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem}
+.nav .brand{font-weight:700}
+.nav-links{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.nav-links a{color:#fff;text-decoration:none}
+
+/* Hero with large bg image and centered text */
+.hero{height:60vh;background-image:url('https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=1600&auto=format&fit=crop');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;position:relative}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.35)}
+.hero-inner{position:relative;color:#fff;text-align:center}
+.hero-inner h1{font-size:3rem;margin:0}
+
+/* About section with two columns */
+.about{padding:3rem 1rem;background:linear-gradient(90deg, rgba(6,182,212,0.06), rgba(255,255,255,0.02))}
+.about-inner{max-width:1100px;margin:0 auto;display:flex;gap:1.5rem;align-items:center}
+.about-text{flex:1}
+.about-image{flex:1}
+.about-image img{width:100%;border-radius:8px}
+
+/* Services with three boxes in a row */
+.services{padding:2rem 1rem}
+.service-row{display:flex;gap:1rem;max-width:1100px;margin:0 auto}
+.service{flex:1;background:#fff;padding:1.25rem;margin:0;border:1px solid rgba(2,6,23,0.06);box-shadow:0 8px 20px rgba(2,6,23,0.06);border-radius:8px;text-align:center;outline:2px solid rgba(6,182,212,0.03)}
+
+/* Contact form and footer */
+.contact-section{padding:2rem 1rem;background:rgba(6,182,212,0.03)}
+.mini-form{max-width:600px;margin:0 auto;display:flex;gap:0.5rem}
+.mini-form input{flex:1;padding:0.5rem;border:1px solid #cfd8e3;border-radius:6px}
+.mini-form button{padding:0.5rem 1rem;background:var(--accent);color:#fff;border:none;border-radius:6px}
+
+.site-footer{text-align:center;padding:1rem;background:#f1f5f9}
+
+/* Positioning demo: relative + absolute (hero-inner already defined above) */
+.hero-inner p{position:absolute;left:50%;transform:translateX(-50%);bottom:-2rem;background:rgba(255,255,255,0.9);color:#111;padding:0.5rem 1rem;border-radius:6px}
+
+/* Responsive */
+@media (max-width:900px){
+  .about-inner{flex-direction:column}
+  .service-row{flex-direction:column}
+  .mini-form{flex-direction:column}
+}

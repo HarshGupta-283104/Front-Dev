@@ -1,0 +1,41 @@
+/* Task 1: Portfolio CSS */
+:root{
+  --bg: #0f1724; /* deep blue-gray */
+  --card: #111827;
+  --accent: #38bdf8; /* sky-400 */
+  --muted: #9ca3af;
+  --light: #ffffff;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Segoe UI, Roboto, Arial, sans-serif;background:var(--bg);color:var(--light)}
+.container{max-width:1000px;margin:0 auto;padding:2rem}
+
+/* Header - fixed */
+.site-header{position:fixed;top:0;left:0;right:0;background:rgba(2,6,23,0.9);backdrop-filter:blur(4px);border-bottom:1px solid rgba(255,255,255,0.04);z-index:50}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem}
+.site-title{font-size:1.25rem;margin:0 /* rem unit used */}
+.main-nav a{color:var(--light);text-decoration:none;margin-left:1rem;font-size:0.95rem;padding:6px 10px /* px unit used */}
+
+/* Main content sits below fixed header */
+.main-content{padding-top:4rem}
+
+/* Intro */
+.intro{display:flex;align-items:center;padding:5vh 1rem; /* vh used; previously 3vh */border-radius:8px;background:linear-gradient(135deg, rgba(56,189,248,0.06), rgba(255,255,255,0.02));margin-top:1rem}
+.profile-img{width:12.5rem;height:12.5rem;border-radius:50%;object-fit:cover;margin-right:2rem;border:4px solid rgba(255,255,255,0.06);box-shadow:0 8px 24px rgba(2,6,23,0.6); /* rem used */}
+.bio h2{font-size:2rem;margin:0 0 0.5rem 0}
+.bio p{font-size:1rem;line-height:1.6;color:var(--muted);max-width:80% /* percent used */}
+
+/* About & contact sections */
+.about, .contact{background:rgba(255,255,255,0.02);padding:1.5rem;margin-top:1.25rem;border-radius:6px;border:1px solid rgba(255,255,255,0.02);}
+
+/* Footer - always at bottom */
+.site-footer{position:fixed;left:0;right:0;bottom:0;background:#020617;color:var(--muted);padding:0.75rem;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:center}
+
+/* Units demo: px, em, %, vh, rem are used inline in relevant rules above */
+
+/* Responsive */
+@media (max-width:700px){
+  .intro{flex-direction:column;text-align:center}
+  .profile-img{margin-right:0;margin-bottom:1rem}
+}

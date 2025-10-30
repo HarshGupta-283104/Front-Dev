@@ -1,0 +1,23 @@
+/* Task 4: Article styling with typographic pseudo-elements */
+:root{--bg:#fcfcfc;--text:#111;--accent:#fde68a}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia, 'Times New Roman', serif;background:var(--bg);color:var(--text);line-height:1.6}
+.article-header{padding:2rem 1.5rem;background:#0b1220;color:#fff}
+.article-header h1{margin:0;font-size:2.25rem}
+.article-header .meta{margin-top:0.5rem;color:#cbd5e1}
+
+.article-body{max-width:800px;margin:2rem auto;padding:1rem}
+.article-body p{margin:1.125rem 0;font-size:1rem;text-align:justify}
+
+/* First-letter and first-line styling */
+.article-body p::first-letter{font-size:3rem;float:left;line-height:1;color:var(--accent);margin-right:0.5rem;font-weight:700}
+.article-body p::first-line{font-weight:700}
+
+/* Mark style */
+mark{background:#ffdf6b;color:#111;padding:0 0.15rem;border-radius:2px}
+
+/* Blockquote emphasis */
+blockquote{margin:1.5rem 0;padding:1rem 1rem;border-left:6px solid #f59e0b;background:#fff8e1}
+blockquote p{margin:0;font-style:italic}
+
+.article-footer{padding:1rem;text-align:center;color:#6b7280}

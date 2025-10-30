@@ -1,0 +1,22 @@
+/* Task 3: Team Members layout */
+:root{--bg:#f5f7fb;--card:#ffffff;--muted:#6b7280;--accent:#0ea5a4;--lead:#ffefc2}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI, Roboto, Arial, sans-serif;background:var(--bg);color:#111}
+.team-header{padding:2rem;text-align:center}
+.team-main{max-width:1000px;margin:0 auto;padding:1rem}
+
+.team-grid{display:flex;gap:1.5rem}
+.card{flex:1;background:var(--card);padding:1rem;margin:0.5rem;border:1px solid #e6e9ee;border-radius:8px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+.card h3{margin:0 0 0.25rem 0}
+.card .role{color:var(--muted);font-weight:600;margin:0 0 0.5rem 0}
+.card p{margin:0}
+
+/* Highlight lead */
+.card.lead{background:var(--lead);border:2px dashed #f59e0b}
+
+/* Box model uniformity applied above */
+
+/* Responsive: single column under 600px */
+@media (max-width:600px){
+  .team-grid{flex-direction:column}
+}
