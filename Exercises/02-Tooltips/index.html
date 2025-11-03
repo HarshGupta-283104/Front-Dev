@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip Demonstration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CSS Tooltip Examples</h1>
+        <p>Hover over the elements below to see different tooltip styles</p>
+    </header>
+
+    <main class="tooltip-container">
+        <div class="tooltip-item">
+            <span class="tooltip-trigger" data-tooltip="This is a simple tooltip">
+                Hover Me
+            </span>
+        </div>
+
+        <div class="tooltip-item">
+            <i class="info-icon" data-tooltip="Tooltips can appear on icons too!">i</i>
+        </div>
+
+        <div class="tooltip-item">
+            <button class="tooltip-button" data-tooltip="Buttons can have tooltips">
+                Button with Tooltip
+            </button>
+        </div>
+
+        <div class="tooltip-item">
+            <span class="tooltip-trigger long-tooltip" data-tooltip="This is a longer tooltip that demonstrates how multiple lines of text can be handled gracefully in our tooltip system">
+                Long Tooltip Example
+            </span>
+        </div>
+
+        <div class="tooltip-item">
+            <span class="tooltip-trigger custom-position" data-tooltip="This tooltip appears with a different offset">
+                Custom Position
+            </span>
+        </div>
+    </main>
+
+    <footer>
+        <p>All tooltips are created using pure CSS with transitions</p>
+    </footer>
+</body>
+</html>
