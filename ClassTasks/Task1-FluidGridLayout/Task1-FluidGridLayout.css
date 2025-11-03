@@ -1,0 +1,58 @@
+/* Task 1: Fluid Grid Layout
+   - 3 equal boxes in a row
+   - responsive: boxes resize automatically
+   - uses CSS Grid with auto-fit/minmax for fluid behavior
+*/
+
+:root{
+  --gap: 1rem;
+  --box-padding: 1.25rem;
+  --box-bg: #f7fbff;
+  --box-border: #dbeafe;
+  --text-color: #0f172a;
+}
+
+*{box-sizing:border-box}
+
+body{
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin:0;
+  background:#f3f4f6;
+  color:var(--text-color);
+  padding:2rem;
+}
+
+header{text-align:center;margin-bottom:1.5rem}
+
+.grid-wrapper{max-width:1100px;margin:0 auto}
+
+/* fluid grid: 3 equal columns when there is space, otherwise they shrink to fit
+   repeat(auto-fit, minmax(240px, 1fr)) keeps columns equal and responsive */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:var(--gap);
+  align-items:stretch;
+}
+
+.box{
+  background:var(--box-bg);
+  border:1px solid var(--box-border);
+  padding:var(--box-padding);
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-weight:600;
+  font-size:1.1rem;
+  min-height:120px; /* visual height that scales with width */
+}
+
+footer{max-width:1100px;margin:1.5rem auto 0;color:#475569;text-align:center;font-size:0.95rem}
+
+/* small screens: slightly smaller padding */
+@media (max-width:420px){
+  :root{--box-padding:0.9rem}
+  .box{font-size:1rem}
+}
