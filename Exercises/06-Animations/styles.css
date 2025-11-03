@@ -1,0 +1,178 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: #2d3436;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #636e72;
+}
+
+/* Animation Container */
+.animation-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.animation-demo {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.animation-demo h2 {
+    color: #2d3436;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Bouncing Ball Animation */
+.ball {
+    width: 50px;
+    height: 50px;
+    background-color: #0984e3;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-100px);
+    }
+}
+
+/* Color Changing Box Animation */
+.color-box {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    animation: changeColor 3s ease-in-out infinite;
+}
+
+@keyframes changeColor {
+    0% { background-color: #0984e3; }
+    33% { background-color: #00b894; }
+    66% { background-color: #6c5ce7; }
+    100% { background-color: #0984e3; }
+}
+
+/* Rotating Square Animation */
+.rotating-square {
+    width: 80px;
+    height: 80px;
+    background-color: #6c5ce7;
+    margin: 0 auto;
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Pulsing Circle Animation */
+.pulsing-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #00b894;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Loading Spinner Animation */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #0984e3;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Sliding Text Animation */
+.sliding-text {
+    animation: slideAndFade 3s ease-in-out infinite;
+    color: #2d3436;
+    font-weight: bold;
+}
+
+@keyframes slideAndFade {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #636e72;
+    font-style: italic;
+}

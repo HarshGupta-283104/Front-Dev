@@ -1,0 +1,174 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f5f7fa;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: #2d3436;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #636e72;
+}
+
+/* Button Container */
+.button-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.button-group {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px;
+}
+
+.button-group h2 {
+    color: #2d3436;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Base Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+    min-width: 120px;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: #0984e3;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0770c5;
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background-color: #636e72;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #4d5558;
+}
+
+/* Outline Button */
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #0984e3;
+    color: #0984e3;
+}
+
+.btn-outline:hover {
+    background-color: #0984e3;
+    color: white;
+}
+
+/* Success Button */
+.btn-success {
+    background-color: #00b894;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #00a383;
+}
+
+/* Danger Button */
+.btn-danger {
+    background-color: #d63031;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c42828;
+}
+
+/* Size Variations */
+.btn-small {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: 80px;
+}
+
+.btn-large {
+    padding: 12px 24px;
+    font-size: 16px;
+    min-width: 160px;
+}
+
+/* Icon Button */
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon {
+    font-size: 16px;
+}
+
+/* Disabled State */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Focus State */
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(9, 132, 227, 0.3);
+}
+
+.btn-danger:focus {
+    box-shadow: 0 0 0 3px rgba(214, 48, 49, 0.3);
+}
+
+.btn-success:focus {
+    box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #636e72;
+    font-style: italic;
+}

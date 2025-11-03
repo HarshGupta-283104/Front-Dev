@@ -1,0 +1,179 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: #2d3436;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #636e72;
+}
+
+/* Effects Container */
+.effects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.effect-demo {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.effect-demo h2 {
+    color: #2d3436;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Grow and Color Change Effect */
+.grow-color-box {
+    width: 150px;
+    height: 150px;
+    background-color: #0984e3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.grow-color-box:hover {
+    transform: scale(1.1);
+    background-color: #6c5ce7;
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+}
+
+/* Shadow and Rotation Effect */
+.shadow-rotate-box {
+    width: 150px;
+    height: 150px;
+    background-color: #00b894;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.shadow-rotate-box:hover {
+    transform: rotate(15deg);
+    box-shadow: 10px 10px 20px rgba(0, 184, 148, 0.3);
+}
+
+/* Gradient and Scale Button */
+.gradient-scale-button {
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #0984e3, #6c5ce7);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.gradient-scale-button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #6c5ce7, #0984e3);
+    box-shadow: 0 5px 15px rgba(9, 132, 227, 0.3);
+}
+
+/* Border and Glow Effect */
+.border-glow-box {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #6c5ce7;
+    color: #6c5ce7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.border-glow-box:hover {
+    border-width: 4px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.5);
+    color: #5f4ed6;
+}
+
+/* Slide and Fade Text Effect */
+.slide-fade-container {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slide-fade-text {
+    color: #2d3436;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    display: inline-block;
+}
+
+.slide-fade-text:hover {
+    transform: translateX(10px);
+    color: #0984e3;
+    text-shadow: 2px 2px 4px rgba(9, 132, 227, 0.3);
+}
+
+/* 3D Transform Effect */
+.transform-3d-box {
+    width: 150px;
+    height: 150px;
+    background-color: #fd79a8;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.transform-3d-box:hover {
+    transform: perspective(500px) rotateY(15deg) rotateX(15deg);
+    box-shadow: -10px 10px 20px rgba(253, 121, 168, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #636e72;
+    font-style: italic;
+}

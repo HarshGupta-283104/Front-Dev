@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-Sizing Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Box-Sizing Comparison</h1>
+        <p>Understanding the difference between content-box and border-box</p>
+    </header>
+
+    <main class="container">
+        <div class="box-wrapper">
+            <div class="box content-box">
+                <h2>content-box</h2>
+                <div class="box-info">
+                    <p>Width: 300px</p>
+                    <p>Padding: 20px</p>
+                    <p>Border: 2px</p>
+                    <p class="total">Total Width: 344px</p>
+                </div>
+            </div>
+
+            <div class="box border-box">
+                <h2>border-box</h2>
+                <div class="box-info">
+                    <p>Width: 300px</p>
+                    <p>Padding: 20px</p>
+                    <p>Border: 2px</p>
+                    <p class="total">Total Width: 300px</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="explanation">
+            <h2>How Box-Sizing Works</h2>
+            <p>
+                <strong>content-box (default):</strong>
+                The width and height properties only include the content.
+                Padding and border are added to the total dimensions.
+            </p>
+            <p>
+                <strong>border-box:</strong>
+                The width and height properties include content, padding, and border.
+                This makes it easier to size elements accurately.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Resize your browser window to see how the boxes respond</p>
+    </footer>
+</body>
+</html>
