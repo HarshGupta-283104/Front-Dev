@@ -1,0 +1,29 @@
+/* Task 2: Flexible Images
+   - single image that scales properly on all devices
+   - uses max-width:100% and height:auto to preserve aspect ratio
+   - rounded corners
+*/
+
+*{box-sizing:border-box}
+body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, Arial;margin:0;background:#fafafa;color:#0f172a;padding:2rem}
+
+header{text-align:center;margin-bottom:1.25rem}
+
+.image-demo{max-width:900px;margin:0 auto}
+
+figure{margin:0}
+figcaption{margin-top:0.5rem;color:#475569;text-align:center}
+
+.responsive-img{
+  display:block;
+  width:100%;     /* ensures it scales to container width */
+  max-width:100%; /* prevents overflow */
+  height:auto;    /* preserves aspect ratio */
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(2,6,23,0.08);
+}
+
+/* small devices: give some horizontal padding so it doesn't touch edges */
+@media (max-width:420px){
+  body{padding:1rem}
+}
