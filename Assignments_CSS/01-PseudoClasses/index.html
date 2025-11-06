@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01 — Pseudo-Classes Demonstration</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Pseudo-Classes Demonstration</h1>
+    <p class="lead">Examples of :hover, :focus, :active and :nth-child()</p>
+  </header>
+
+  <main>
+    <section class="examples" aria-label="pseudo-class examples">
+      <!-- Each example contains a short explanation and the interactive element -->
+
+      <article class="example hover">
+        <p class="explain">:hover — moves mouse over the element</p>
+        <a href="#" class="demo link">Hover this link</a>
+      </article>
+
+      <article class="example focus">
+        <p class="explain">:focus — when element receives keyboard or mouse focus (tab/click)</p>
+        <button class="demo btn">Focus me (Tab)</button>
+      </article>
+
+      <article class="example active">
+        <p class="explain">:active — while mouse is pressed (click and hold)</p>
+        <button class="demo btn active-demo">Click and hold</button>
+      </article>
+
+      <article class="example nth">
+        <p class="explain">:nth-child() — style children based on position</p>
+        <ul class="demo list">
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+          <li>Item 4</li>
+          <li>Item 5</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>All examples aligned in one row using Flexbox; try keyboard navigation and hover/click states.</p>
+  </footer>
+</body>
+</html>

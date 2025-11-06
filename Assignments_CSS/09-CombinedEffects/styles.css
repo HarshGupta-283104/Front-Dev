@@ -1,0 +1,21 @@
+/* 09 - Combined Effects
+   - Combine pseudo-classes, transitions, and transforms on elements
+*/
+
+*{box-sizing:border-box}
+body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, Arial;margin:0;padding:2rem;background:#f7fafc;color:#0f172a}
+header{text-align:center;margin-bottom:1rem}
+.examples{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+.combo{padding:12px 18px;border-radius:8px;border:none;background:#06b6d4;color:#fff;cursor:pointer;transition:transform 0.25s ease,box-shadow 0.25s ease}
+.combo:hover{transform:scale(1.05);box-shadow:0 8px 20px rgba(6,182,212,0.18);background:#0891b2}
+.combo:active{transform:scale(0.98)}
+.combo:focus{outline:none;box-shadow:0 0 0 4px rgba(6,182,212,0.15)}
+
+.combo.alt{background:linear-gradient(45deg,#f97316,#f43f5e);color:#fff}
+
+.combo-box{width:140px;height:140px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:#eef2ff;transition:transform 0.3s ease,box-shadow 0.3s ease}
+.combo-box:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 12px 30px rgba(14,165,233,0.12)}
+.combo-box.soft{background:linear-gradient(180deg,#fff,#fef3c7)}
+
+footer{text-align:center;margin-top:1rem;color:#475569}

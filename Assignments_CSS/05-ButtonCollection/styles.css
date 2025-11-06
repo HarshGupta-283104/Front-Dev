@@ -1,0 +1,32 @@
+/* 05 - Button Collection
+   - Several styled buttons demonstrating :hover, :active, :focus, :disabled
+   - Flexbox used to align buttons
+*/
+
+*{box-sizing:border-box}
+body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, Arial;margin:0;padding:2rem;background:#f8fafc;color:#0f172a}
+header{text-align:center;margin-bottom:1rem}
+.controls{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+.btn{padding:10px 16px;border-radius:8px;border:none;cursor:pointer;font-weight:700;box-shadow:0 4px 8px rgba(2,6,23,0.06);transition:transform 0.15s ease,box-shadow 0.15s ease}
+
+/* Primary */
+.btn.primary{background:#0ea5e9;color:#fff}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(14,165,233,0.18)}
+.btn.primary:active{transform:translateY(0.5px)}
+
+/* Secondary */
+.btn.secondary{background:#64748b;color:#fff}
+.btn.secondary:hover{transform:translateY(-2px)}
+
+/* Outline */
+.btn.outline{background:transparent;border:2px solid #0ea5e9;color:#0ea5e9}
+.btn.outline:hover{background:#0ea5e9;color:#fff}
+
+/* Disabled */
+.btn:disabled{opacity:0.6;cursor:not-allowed;box-shadow:none}
+
+/* Focus state */
+.btn:focus{outline:none;box-shadow:0 0 0 4px rgba(14,165,233,0.18)}
+
+footer{text-align:center;margin-top:1rem;color:#475569}

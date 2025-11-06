@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>04 — CSS Selectors Practice</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>CSS Selectors Practice</h1>
+    <p class="lead">Element, class, ID, attribute and combinator selectors</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Element selector</h2>
+      <p>This paragraph is styled using an element selector.</p>
+    </section>
+
+    <section>
+      <h2>Class selector</h2>
+      <p class="highlight">This has a class selector applied.</p>
+    </section>
+
+    <section>
+      <h2>ID selector</h2>
+      <div id="unique">This div uses an ID selector.</div>
+    </section>
+
+    <section>
+      <h2>Attribute selectors</h2>
+      <input type="text" placeholder="text input">
+      <input type="email" placeholder="email input">
+      <a href="https://example.com">External link</a>
+      <a href="#local">Local link</a>
+    </section>
+
+    <section>
+      <h2>Combinators</h2>
+      <div class="parent">
+        <p>Direct child (>)</p>
+        <span><p>Descendant (space)</p></span>
+        <p>Another direct child</p>
+      </div>
+      <h3>Sibling examples</h3>
+      <p>Adjacent sibling (+) - right after h3</p>
+      <p>General sibling (~) - any later sibling</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Comments in CSS explain each rule.</p>
+  </footer>
+</body>
+</html>

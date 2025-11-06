@@ -1,0 +1,37 @@
+/* 02 - Tooltip Demonstration
+   - Tooltips built with pure CSS (pseudo-elements and opacity transitions)
+   - transition: 0.3s ease-in-out used for fade
+   - centered layout using Flexbox
+*/
+
+*{box-sizing:border-box}
+body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, Arial;margin:0;padding:2rem;background:#f8fafc;color:#0f172a}
+header{text-align:center;margin-bottom:1.25rem}
+.center{display:flex;justify-content:center;align-items:center}
+.items{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+
+/* base styles for tooltip triggers */
+.tip{position:relative;padding:10px 14px;background:#fff;border-radius:8px;border:1px solid #e6eef8;cursor:pointer}
+
+/* pseudo-element creating the tooltip text */
+.tip::before{
+  content:attr(data-tip);
+  position:absolute;
+  bottom:calc(100% + 8px);
+  left:50%;
+  transform:translateX(-50%) translateY(6px);
+  background:#0f172a;color:#fff;padding:8px 10px;border-radius:6px;font-size:13px;white-space:nowrap;opacity:0;visibility:hidden;transition:all 0.3s ease-in-out;pointer-events:none;z-index:10
+}
+
+/* arrow */
+.tip::after{
+  content:'';position:absolute;bottom:100%;left:50%;transform:translateX(-50%) translateY(6px);border-width:6px;border-style:solid;border-color:#0f172a transparent transparent transparent;opacity:0;visibility:hidden;transition:all 0.3s ease-in-out;pointer-events:none;z-index:10}
+
+.tip:hover::before, .tip:hover::after{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+
+/* long tooltips wrap nicely */
+.tip[data-tip][data-tip*=" "]::before{white-space:normal;max-width:220px;text-align:center}
+
+footer{text-align:center;margin-top:1.25rem;color:#475569}
+
+@media (max-width:540px){.items{gap:.75rem}}

@@ -1,0 +1,28 @@
+/* 07 - UI Components
+   - Card-like container with search, controls and dropdown
+   - Flexbox used for alignment
+   - :focus and :hover highlight states
+*/
+
+*{box-sizing:border-box}
+body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, Arial;margin:0;padding:2rem;background:linear-gradient(135deg,#f6f8fa 0,#eef2f7 100%)}
+header{text-align:center;margin-bottom:1rem}
+.card{max-width:900px;margin:0 auto;background:#fff;border-radius:12px;padding:20px;box-shadow:0 8px 24px rgba(2,6,23,0.06)}
+.card-inner{display:flex;flex-direction:column;gap:16px}
+.search{display:flex;gap:8px}
+.search-input{flex:1;padding:10px;border:2px solid #eef2ff;border-radius:8px}
+.search-input:focus{outline:none;border-color:#60a5fa;box-shadow:0 0 0 4px rgba(96,165,250,0.12)}
+.controls{display:flex;gap:8px}
+.dropdown{position:relative}
+.dropdown-toggle{padding:10px 14px;border-radius:8px;border:2px solid #eef2ff;background:#fff}
+.dropdown-menu{position:absolute;left:0;top:calc(100% + 8px);background:#fff;border-radius:8px;padding:8px 0;box-shadow:0 8px 18px rgba(2,6,23,0.08);min-width:120px;opacity:0;visibility:hidden;transition:all 0.2s ease}
+.dropdown:hover .dropdown-menu{opacity:1;visibility:visible}
+.dropdown-menu a{display:block;padding:8px 12px;color:#0f172a;text-decoration:none}
+.dropdown-menu a:hover{background:#f1f5f9}
+
+.btn{padding:10px 14px;border-radius:8px;border:none;cursor:pointer}
+.btn.primary{background:#0ea5e9;color:#fff}
+.btn.secondary{background:#64748b;color:#fff}
+.btn.outline{background:transparent;border:2px solid #0ea5e9;color:#0ea5e9}
+
+footer{text-align:center;margin-top:1rem;color:#475569}

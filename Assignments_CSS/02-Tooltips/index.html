@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>02 — Tooltip Demonstration</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>CSS Tooltips (no JavaScript)</h1>
+    <p class="lead">Hover the items to reveal tooltips (pure CSS, opacity transitions)</p>
+  </header>
+
+  <main class="center">
+    <div class="items">
+      <span class="tip" data-tip="This is a simple tooltip">Hover me</span>
+      <span class="tip" data-tip="Tooltip on an icon">🔔</span>
+      <span class="tip" data-tip="Another informative tooltip with more text">More info</span>
+      <button class="tip" data-tip="Buttons can show tooltips too">Button</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Tooltips are positioned above elements using :before and transitions of 0.3s ease-in-out.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>08 — Box-Sizing Comparison</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Box-Sizing Comparison</h1>
+    <p class="lead">Compare default box-sizing and border-box</p>
+  </header>
+
+  <main class="compare">
+    <div class="box content-box">
+      <h2>content-box (default)</h2>
+      <p>Width + padding are added to total size.</p>
+    </div>
+
+    <div class="box border-box">
+      <h2>border-box</h2>
+      <p>Padding included inside width — easier to reason about.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>Both boxes use the same declared width and padding to highlight the difference.</p>
+  </footer>
+</body>
+</html>

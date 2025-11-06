@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>07 — UI Components</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>UI Components</h1>
+    <p class="lead">Search bar, buttons and a CSS-only dropdown inside a card</p>
+  </header>
+
+  <main class="card">
+    <div class="card-inner">
+      <div class="search">
+        <input type="text" placeholder="Search..." class="search-input">
+        <button class="btn primary">Search</button>
+      </div>
+
+      <div class="controls">
+        <button class="btn secondary">Action</button>
+        <button class="btn outline">Options</button>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropdown-toggle">Choose</button>
+        <ul class="dropdown-menu">
+          <li><a href="#">One</a></li>
+          <li><a href="#">Two</a></li>
+          <li><a href="#">Three</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Card layout uses Flexbox; focus and hover states are highlighted.</p>
+  </footer>
+</body>
+</html>
