@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q10 - Random Coupon Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #ff9a9e;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎁 Random Coupon Generator</h1>
+        <p>Open the console (F12) to see the output</p>
+    </div>
+
+    <script>
+        /**
+         * ASSIGNMENT 1 - QUESTION 10: The Random Coupon Generator
+         * 
+         * Purpose: Generate random discount coupons for a shopping platform
+         * based on a randomly generated number. Include special bonus for primes.
+         * 
+         * Coupon Rules:
+         * - Number 1–30 → 10% discount
+         * - Number 31–60 → 20% discount
+         * - Number 61–90 → 30% discount
+         * - Number 91–100 → 50% Mega Offer
+         * - Bonus: If number is prime → "Prime number bonus applied"
+         */
+
+        console.log("=== RANDOM COUPON GENERATOR ===\n");
+        console.log("🎰 Generating your lucky coupon...\n");
+
+        /**
+         * Step 1: Generate a random number between 1 and 100
+         * Math.random() generates 0 to 0.999...
+         * Multiply by 100 to get 0-99.999...
+         * Add 1 to shift range to 1-100.999...
+         * Math.floor() to get integer from 1-100
+         */
+        let couponNumber = Math.floor(Math.random() * 100) + 1;
+        
+        console.log(`Your Coupon Number: ${couponNumber}`);
+        console.log("─────────────────────\n");
+
+        // Variables for coupon details
+        let discountMessage = "";
+        let discountPercent = 0;
+
+        /**
+         * Step 2: Determine discount based on the coupon number range
+         * Higher numbers get better discounts
+         */
+        if (couponNumber >= 1 && couponNumber <= 30) {
+            discountPercent = 10;
+            discountMessage = "🎉 You won a 10% discount!";
+        } else if (couponNumber >= 31 && couponNumber <= 60) {
+            discountPercent = 20;
+            discountMessage = "🎊 You won a 20% discount!";
+        } else if (couponNumber >= 61 && couponNumber <= 90) {
+            discountPercent = 30;
+            discountMessage = "🎈 You won a 30% discount!";
+        } else if (couponNumber >= 91 && couponNumber <= 100) {
+            discountPercent = 50;
+            discountMessage = "🏆 You won a 50% Mega Offer!";
+        }
+
+        console.log(discountMessage);
+
+        /**
+         * Step 3: Check if the number is prime for bonus reward
+         * A prime number is only divisible by 1 and itself
+         */
+        let isPrime = true;
+
+        // Numbers less than 2 are not prime
+        if (couponNumber < 2) {
+            isPrime = false;
+        } else {
+            /**
+             * Check divisibility from 2 to square root of number
+             * If divisible by any number in this range, not prime
+             */
+            for (let i = 2; i <= Math.sqrt(couponNumber); i++) {
+                if (couponNumber % i === 0) {
+                    isPrime = false;
+                    break;  // Exit loop as soon as we find a divisor
+                }
+            }
+        }
+
+        /**
+         * Step 4: Apply prime number bonus if applicable
+         */
+        console.log("\n--- BONUS CHECK ---");
+        if (isPrime) {
+            console.log(`✨ PRIME NUMBER BONUS APPLIED!`);
+            console.log(`${couponNumber} is a prime number - You get extra rewards!`);
+        } else {
+            console.log(`${couponNumber} is not a prime number`);
+            console.log(`No bonus this time, but great discount!`);
+        }
+
+        // Display final summary
+        console.log("\n=== COUPON SUMMARY ===");
+        console.log(`Coupon Number: ${couponNumber}`);
+        console.log(`Discount: ${discountPercent}%`);
+        console.log(`Prime Bonus: ${isPrime ? 'Yes ✨' : 'No'}`);
+        console.log("======================\n");
+        console.log("🛒 Happy Shopping! Apply this coupon at checkout.");
+    </script>
+</body>
+</html>
+

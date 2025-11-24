@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q8 - Employee Bonus Distribution</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #43e97b;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💼 Employee Bonus Distribution</h1>
+        <p>Open the console (F12) to see the output</p>
+    </div>
+
+    <script>
+        /**
+         * ASSIGNMENT 1 - QUESTION 8: The Employee Bonus Distribution
+         * 
+         * Purpose: Calculate annual bonus for employees based on performance
+         * rating and years of experience, with a cap for high earners.
+         * 
+         * Bonus Rules:
+         * - Rating 5 → 20% bonus
+         * - Rating 4 → 15% bonus
+         * - Rating 3 → 10% bonus
+         * - Rating < 3 → no bonus
+         * - Experience > 5 years → extra 5% bonus
+         * - If base salary > ₹1,00,000 → cap bonus at ₹25,000
+         */
+
+        // Input employee data
+        let baseSalary = 120000;        // Monthly base salary in rupees
+        let performanceRating = 5;      // Rating from 1-5
+        let experienceYears = 7;        // Years of experience
+
+        // Variables for bonus calculation
+        let bonusPercent = 0;
+        let calculatedBonus = 0;
+        let experienceBonus = 0;
+        let finalBonus = 0;
+        let totalSalary = 0;
+
+        console.log("=== EMPLOYEE BONUS DISTRIBUTION ===\n");
+        console.log("Employee Details:");
+        console.log(`Base Salary: ₹${baseSalary.toLocaleString('en-IN')}`);
+        console.log(`Performance Rating: ${performanceRating}/5`);
+        console.log(`Experience: ${experienceYears} years\n`);
+
+        /**
+         * Step 1: Determine base bonus percentage based on performance rating
+         * Higher ratings receive higher bonus percentages
+         */
+        console.log("--- BONUS CALCULATION ---");
+
+        if (performanceRating === 5) {
+            bonusPercent = 20;
+            console.log(`✓ Performance Bonus: 20% (Excellent rating)`);
+        } else if (performanceRating === 4) {
+            bonusPercent = 15;
+            console.log(`✓ Performance Bonus: 15% (Good rating)`);
+        } else if (performanceRating === 3) {
+            bonusPercent = 10;
+            console.log(`✓ Performance Bonus: 10% (Average rating)`);
+        } else {
+            bonusPercent = 0;
+            console.log(`✗ No performance bonus (Rating below 3)`);
+        }
+
+        /**
+         * Step 2: Add experience bonus if applicable
+         * Employees with > 5 years experience get additional 5% bonus
+         */
+        if (experienceYears > 5) {
+            experienceBonus = 5;
+            bonusPercent += experienceBonus;
+            console.log(`✓ Experience Bonus: +5% (${experienceYears} years > 5 years)`);
+        } else {
+            console.log(`✗ No experience bonus (${experienceYears} years ≤ 5 years)`);
+        }
+
+        console.log(`\nTotal Bonus Percentage: ${bonusPercent}%`);
+
+        /**
+         * Step 3: Calculate bonus amount
+         * Bonus Amount = Base Salary × Bonus Percentage / 100
+         */
+        calculatedBonus = (baseSalary * bonusPercent) / 100;
+        console.log(`Calculated Bonus: ₹${calculatedBonus.toLocaleString('en-IN')}`);
+
+        /**
+         * Step 4: Apply bonus cap for high earners
+         * If base salary exceeds ₹1,00,000, cap bonus at ₹25,000
+         */
+        if (baseSalary > 100000) {
+            console.log(`\n⚠ High earner detected (Salary > ₹1,00,000)`);
+            
+            if (calculatedBonus > 25000) {
+                finalBonus = 25000;
+                console.log(`Bonus capped at ₹25,000 (was ₹${calculatedBonus.toLocaleString('en-IN')})`);
+            } else {
+                finalBonus = calculatedBonus;
+                console.log(`Bonus within cap: ₹${finalBonus.toLocaleString('en-IN')}`);
+            }
+        } else {
+            finalBonus = calculatedBonus;
+            console.log(`\nNo cap applied (Salary ≤ ₹1,00,000)`);
+        }
+
+        /**
+         * Step 5: Calculate total salary with bonus
+         * Total = Base Salary + Final Bonus
+         */
+        totalSalary = baseSalary + finalBonus;
+
+        // Display complete compensation summary
+        console.log("\n=== COMPENSATION SUMMARY ===");
+        console.log(`Base Salary: ₹${baseSalary.toLocaleString('en-IN')}`);
+        console.log(`Calculated Bonus (${bonusPercent}%): ₹${calculatedBonus.toLocaleString('en-IN')}`);
+        console.log(`Final Bonus (after cap): ₹${finalBonus.toLocaleString('en-IN')}`);
+        console.log(`────────────────────────`);
+        console.log(`TOTAL SALARY: ₹${totalSalary.toLocaleString('en-IN')}`);
+        console.log("============================\n");
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q6 - Game Reward System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #fa709a;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Game Reward System</h1>
+        <p>Open the console (F12) to see the output</p>
+    </div>
+
+    <script>
+        /**
+         * ASSIGNMENT 1 - QUESTION 6: The Game Reward System
+         * 
+         * Purpose: Calculate coins earned by a player based on level,
+         * performance score, and mission completion status.
+         * 
+         * Reward Rules:
+         * - Base coins = (level × 50) + (performanceScore × 10)
+         * - If all missions completed: double the coins
+         * - Rank assignment: Elite if coins > 1000, else Regular
+         */
+
+        // Input player data
+        let level = 12;                      // Player's current level
+        let performanceScore = 85;           // Performance score out of 100
+        let missionsCompleted = true;        // Whether all missions are completed
+
+        // Variables for reward calculation
+        let coins = 0;
+        let rank = "";
+
+        console.log("=== GAME REWARD SYSTEM ===\n");
+        console.log("Player Stats:");
+        console.log(`Level: ${level}`);
+        console.log(`Performance Score: ${performanceScore}/100`);
+        console.log(`All Missions Completed: ${missionsCompleted ? 'Yes' : 'No'}\n`);
+
+        /**
+         * Step 1: Calculate base coins using the reward formula
+         * Formula: coins = (level × 50) + (performanceScore × 10)
+         * This rewards both progression (level) and skill (performance)
+         */
+        coins = (level * 50) + (performanceScore * 10);
+        
+        console.log("--- REWARD CALCULATION ---");
+        console.log(`Level Bonus: ${level} × 50 = ${level * 50} coins`);
+        console.log(`Performance Bonus: ${performanceScore} × 10 = ${performanceScore * 10} coins`);
+        console.log(`Base Coins Earned: ${coins}`);
+
+        /**
+         * Step 2: Apply mission completion bonus
+         * If player completed all missions, double the total coins
+         */
+        if (missionsCompleted === true) {
+            coins = coins * 2;  // Double the coins
+            console.log(`\n✓ Mission Completion Bonus: Coins DOUBLED!`);
+            console.log(`Total Coins After Bonus: ${coins}`);
+        } else {
+            console.log(`\n✗ No mission bonus (not all missions completed)`);
+        }
+
+        /**
+         * Step 3: Assign rank based on total coins earned
+         * Elite rank for high performers (> 1000 coins)
+         * Regular rank for others
+         */
+        if (coins > 1000) {
+            rank = "Elite";
+            console.log(`\n🏆 Rank Achieved: ELITE (Coins > 1000)`);
+        } else {
+            rank = "Regular";
+            console.log(`\n⭐ Rank Achieved: REGULAR`);
+        }
+
+        // Display final reward summary
+        console.log("\n=== REWARD SUMMARY ===");
+        console.log(`Player Level: ${level}`);
+        console.log(`Performance Score: ${performanceScore}/100`);
+        console.log(`Total Coins Earned: ${coins}`);
+        console.log(`Player Rank: ${rank}`);
+        console.log("======================\n");
+    </script>
+</body>
+</html>
+

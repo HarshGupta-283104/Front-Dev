@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q5 - Weather Alert System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #4facfe;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌤️ Weather Alert System</h1>
+        <p>Open the console (F12) to see the output</p>
+    </div>
+
+    <script>
+        /**
+         * ASSIGNMENT 1 - QUESTION 5: The Weather Alert System
+         * 
+         * Purpose: Check weather conditions to determine if an outdoor event
+         * should proceed or be cancelled. Also provide clothing/hydration advice.
+         * 
+         * Safety Rules:
+         * - Cancel if temp > 35°C AND humidity > 70% (Heat Alert)
+         * - Cancel if temp < 10°C OR windSpeed > 40 km/h (Cold/Windy Alert)
+         * - Otherwise approve the event
+         * 
+         * Comfort Advice:
+         * - Below 20°C → Wear Jacket
+         * - 20–30°C → Comfortable
+         * - Above 30°C → Stay Hydrated
+         */
+
+        // Input weather parameters
+        let temperature = 38;     // Temperature in Celsius
+        let humidity = 75;        // Humidity percentage
+        let windSpeed = 15;       // Wind speed in km/h
+
+        // Variables for decision making
+        let eventStatus = "";
+        let comfortAdvice = "";
+
+        console.log("=== WEATHER ALERT SYSTEM ===\n");
+        console.log("Current Weather Conditions:");
+        console.log(`Temperature: ${temperature}°C`);
+        console.log(`Humidity: ${humidity}%`);
+        console.log(`Wind Speed: ${windSpeed} km/h\n`);
+
+        /**
+         * Step 1: Check dangerous weather conditions
+         * Multiple conditions that could cancel the event
+         */
+        
+        // Check for heat alert (both conditions must be true)
+        if (temperature > 35 && humidity > 70) {
+            eventStatus = "❌ Cancel: Heat Alert";
+            console.log("⚠️ DANGER: High temperature with high humidity");
+            console.log("Risk of heat stroke and dehydration");
+        } 
+        // Check for cold or windy conditions (either condition can cancel)
+        else if (temperature < 10 || windSpeed > 40) {
+            if (temperature < 10) {
+                eventStatus = "❌ Cancel: Cold Alert";
+                console.log("⚠️ DANGER: Temperature too low");
+                console.log("Risk of hypothermia");
+            } else {
+                eventStatus = "❌ Cancel: Windy Alert";
+                console.log("⚠️ DANGER: Wind speed too high");
+                console.log("Risk of flying debris and instability");
+            }
+        } 
+        // If no dangerous conditions, approve event
+        else {
+            eventStatus = "✅ Event Approved";
+            console.log("✓ Weather conditions are safe for outdoor event");
+        }
+
+        /**
+         * Step 2: Provide comfort and safety advice based on temperature
+         * This advice is given regardless of event status
+         */
+        console.log("\n--- COMFORT ADVICE ---");
+
+        if (temperature < 20) {
+            comfortAdvice = "🧥 Wear Jacket";
+            console.log("Temperature is cool - dress warmly");
+        } else if (temperature >= 20 && temperature <= 30) {
+            comfortAdvice = "😊 Comfortable";
+            console.log("Temperature is comfortable - enjoy!");
+        } else {
+            comfortAdvice = "💧 Stay Hydrated";
+            console.log("Temperature is high - drink plenty of water");
+        }
+
+        // Display final summary
+        console.log("\n=== DECISION SUMMARY ===");
+        console.log(`Event Status: ${eventStatus}`);
+        console.log(`Advice: ${comfortAdvice}`);
+        console.log("========================\n");
+    </script>
+</body>
+</html>
+

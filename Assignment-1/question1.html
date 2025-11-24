@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1 - E-Commerce Delivery Estimator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 E-Commerce Delivery Estimator</h1>
+        <p>Open the console (F12) to see the output</p>
+    </div>
+
+    <script>
+        /**
+         * ASSIGNMENT 1 - QUESTION 1: The E-Commerce Delivery Estimator
+         * 
+         * Purpose: Calculate total cost and delivery time for an e-commerce order
+         * based on order amount, premium membership, and delivery location.
+         * 
+         * Business Rules:
+         * - Orders below ₹500 incur a ₹50 delivery fee
+         * - Premium members get free delivery regardless of order amount
+         * - Standard delivery time is 3 days
+         * - Remote locations add 2 extra days to delivery time
+         */
+
+        // Input variables representing customer order details
+        let orderAmount = 450;      // Order amount in rupees
+        let isPremium = false;       // Premium membership status
+        let isRemote = true;         // Remote location flag
+
+        // Initialize variables for calculations
+        let deliveryFee = 0;         // Delivery fee to be calculated
+        let totalCost = 0;           // Final total cost including delivery
+        let deliveryTime = 3;        // Base delivery time in days
+
+        console.log("=== E-COMMERCE DELIVERY ESTIMATOR ===\n");
+        console.log(`Order Amount: ₹${orderAmount}`);
+        console.log(`Premium Member: ${isPremium ? 'Yes' : 'No'}`);
+        console.log(`Remote Location: ${isRemote ? 'Yes' : 'No'}\n`);
+
+        /**
+         * Calculate delivery fee based on order amount and membership status
+         * Logic: If not premium member AND order is below ₹500, charge ₹50 delivery fee
+         */
+        if (!isPremium && orderAmount < 500) {
+            deliveryFee = 50;
+            console.log("✓ Delivery fee applied: ₹50 (Order below ₹500)");
+        } else if (isPremium) {
+            console.log("✓ Delivery fee waived: Premium member benefit");
+        } else {
+            console.log("✓ Free delivery: Order amount ≥ ₹500");
+        }
+
+        /**
+         * Calculate total cost
+         * Total = Order Amount + Delivery Fee
+         */
+        totalCost = orderAmount + deliveryFee;
+
+        /**
+         * Calculate delivery time based on location
+         * Logic: Add 2 days if location is marked as remote
+         */
+        if (isRemote) {
+            deliveryTime += 2;
+            console.log("✓ Remote location: +2 days added to delivery time");
+        }
+
+        // Display final results
+        console.log("\n--- FINAL SUMMARY ---");
+        console.log(`Total Cost: ₹${totalCost}`);
+        console.log(`Estimated Delivery Time: ${deliveryTime} days`);
+        console.log("=====================\n");
+    </script>
+</body>
+</html>
+

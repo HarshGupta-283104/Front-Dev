@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q2 - Banking Interest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #11998e;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💰 Banking Interest Calculator</h1>
+        <p>Open the console (F12) to see the output</p>
+    </div>
+
+    <script>
+        /**
+         * ASSIGNMENT 1 - QUESTION 2: The Banking Interest Calculator
+         * 
+         * Purpose: Calculate the final balance after applying interest based on
+         * account type and deposit amount over a specified period.
+         * 
+         * Interest Rules:
+         * - Savings account: 4% annual interest
+         * - Fixed deposit: 6.5% annual interest
+         * - Bonus: +1% extra if deposit > ₹1,00,000
+         * 
+         * Formula: total = amount * Math.pow((1 + rate/100), years)
+         */
+
+        // Input variables
+        let accountType = "fixed";    // Account type: "savings" or "fixed"
+        let amount = 150000;          // Deposit amount in rupees
+        let years = 5;                // Investment period in years
+
+        // Initialize interest rate variable
+        let interestRate = 0;
+
+        console.log("=== BANKING INTEREST CALCULATOR ===\n");
+        console.log(`Account Type: ${accountType.toUpperCase()}`);
+        console.log(`Deposit Amount: ₹${amount.toLocaleString('en-IN')}`);
+        console.log(`Investment Period: ${years} years\n`);
+
+        /**
+         * Determine base interest rate based on account type
+         * Savings account gets 4% while Fixed deposit gets 6.5%
+         */
+        if (accountType.toLowerCase() === "savings") {
+            interestRate = 4;
+            console.log("✓ Base Interest Rate: 4% (Savings Account)");
+        } else if (accountType.toLowerCase() === "fixed") {
+            interestRate = 6.5;
+            console.log("✓ Base Interest Rate: 6.5% (Fixed Deposit)");
+        } else {
+            console.log("⚠ Invalid account type! Defaulting to Savings (4%)");
+            interestRate = 4;
+        }
+
+        /**
+         * Apply bonus interest if deposit amount exceeds ₹1,00,000
+         * Bonus: Additional 1% interest rate
+         */
+        if (amount > 100000) {
+            interestRate += 1;
+            console.log("✓ Bonus Applied: +1% (Deposit > ₹1,00,000)");
+        }
+
+        console.log(`Final Interest Rate: ${interestRate}%\n`);
+
+        /**
+         * Calculate final balance using compound interest formula
+         * Formula: A = P * (1 + r/100)^t
+         * Where:
+         * A = Final amount
+         * P = Principal (initial deposit)
+         * r = Annual interest rate
+         * t = Time in years
+         */
+        let finalBalance = amount * Math.pow((1 + interestRate / 100), years);
+
+        // Round to 2 decimal places for currency display
+        finalBalance = Math.round(finalBalance * 100) / 100;
+
+        // Calculate interest earned
+        let interestEarned = finalBalance - amount;
+
+        // Display final results
+        console.log("--- CALCULATION RESULTS ---");
+        console.log(`Initial Deposit: ₹${amount.toLocaleString('en-IN')}`);
+        console.log(`Interest Earned: ₹${interestEarned.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`);
+        console.log(`Final Balance: ₹${finalBalance.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`);
+        console.log("===========================\n");
+    </script>
+</body>
+</html>
+

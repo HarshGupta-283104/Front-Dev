@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q7 - Restaurant Billing with Tips</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #a6c1ee;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍽️ Restaurant Billing with Tips</h1>
+        <p>Open the console (F12) to see the output</p>
+    </div>
+
+    <script>
+        /**
+         * ASSIGNMENT 1 - QUESTION 7: Restaurant Billing with Tips
+         * 
+         * Purpose: Calculate complete restaurant bill including taxes and tips.
+         * 
+         * Billing Rules:
+         * - GST: 5% of base cost (always applied)
+         * - Service Tax: 10% if dining in, 0% for takeaway
+         * - Recommended Tip: 8% if total bill > ₹2000
+         */
+
+        // Input order details
+        let baseCost = 2500;         // Base food cost in rupees
+        let isDiningIn = true;       // Dining type: true = dine-in, false = takeaway
+
+        // Variables for billing calculation
+        let gst = 0;
+        let serviceTax = 0;
+        let totalBeforeTip = 0;
+        let tipAmount = 0;
+        let finalTotal = 0;
+
+        console.log("=== RESTAURANT BILLING SYSTEM ===\n");
+        console.log(`Base Food Cost: ₹${baseCost}`);
+        console.log(`Order Type: ${isDiningIn ? 'Dine-In' : 'Takeaway'}\n`);
+
+        /**
+         * Step 1: Calculate GST (Goods and Services Tax)
+         * GST is 5% of base cost and always applied
+         */
+        gst = (baseCost * 5) / 100;
+        console.log("--- TAX BREAKDOWN ---");
+        console.log(`GST (5%): ₹${gst.toFixed(2)}`);
+
+        /**
+         * Step 2: Calculate Service Tax
+         * Service tax is 10% only for dine-in orders
+         * Takeaway orders don't have service tax
+         */
+        if (isDiningIn) {
+            serviceTax = (baseCost * 10) / 100;
+            console.log(`Service Tax (10%): ₹${serviceTax.toFixed(2)} [Dine-In]`);
+        } else {
+            serviceTax = 0;
+            console.log(`Service Tax: ₹0.00 [Takeaway - No service tax]`);
+        }
+
+        /**
+         * Step 3: Calculate total before tip
+         * Total = Base Cost + GST + Service Tax
+         */
+        totalBeforeTip = baseCost + gst + serviceTax;
+        console.log(`\nSubtotal (with taxes): ₹${totalBeforeTip.toFixed(2)}`);
+
+        /**
+         * Step 4: Calculate recommended tip
+         * If total bill exceeds ₹2000, suggest 8% tip
+         */
+        console.log("\n--- TIP CALCULATION ---");
+        if (totalBeforeTip > 2000) {
+            tipAmount = (totalBeforeTip * 8) / 100;
+            console.log(`Recommended Tip (8%): ₹${tipAmount.toFixed(2)}`);
+            console.log(`[Bill > ₹2000 - Tip suggested]`);
+        } else {
+            tipAmount = 0;
+            console.log(`Recommended Tip: ₹0.00`);
+            console.log(`[Bill ≤ ₹2000 - No tip suggested]`);
+        }
+
+        /**
+         * Step 5: Calculate final total
+         * Final Total = Subtotal + Tip
+         */
+        finalTotal = totalBeforeTip + tipAmount;
+
+        // Display complete billing summary
+        console.log("\n=== BILLING SUMMARY ===");
+        console.log(`1. Base Amount: ₹${baseCost.toFixed(2)}`);
+        console.log(`2. GST (5%): ₹${gst.toFixed(2)}`);
+        console.log(`3. Service Tax (${isDiningIn ? '10%' : '0%'}): ₹${serviceTax.toFixed(2)}`);
+        console.log(`4. Subtotal: ₹${totalBeforeTip.toFixed(2)}`);
+        console.log(`5. Tip (${tipAmount > 0 ? '8%' : '0%'}): ₹${tipAmount.toFixed(2)}`);
+        console.log(`───────────────────────`);
+        console.log(`FINAL TOTAL: ₹${finalTotal.toFixed(2)}`);
+        console.log("=======================\n");
+    </script>
+</body>
+</html>
+

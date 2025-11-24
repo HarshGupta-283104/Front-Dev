@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q9 - Library Fine Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #a8edea;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Library Fine Calculator</h1>
+        <p>Open the console (F12) to see the output</p>
+    </div>
+
+    <script>
+        /**
+         * ASSIGNMENT 1 - QUESTION 9: The Library Fine Calculator
+         * 
+         * Purpose: Calculate library fines for overdue books based on
+         * delay period and apply penalty for repeat offenders.
+         * 
+         * Fine Structure:
+         * - 1–5 days late → ₹10 per day
+         * - 6–10 days late → ₹20 per day
+         * - 11+ days late → ₹50 per day
+         * - If > 3 delayed returns → additional ₹200 penalty
+         */
+
+        // Input: Array of late books with their delay days
+        let lateBooks = [
+            { bookName: "JavaScript Basics", daysLate: 3 },
+            { bookName: "Python for Beginners", daysLate: 8 },
+            { bookName: "Data Structures", daysLate: 15 },
+            { bookName: "Web Development", daysLate: 2 }
+        ];
+
+        // Variables for fine calculation
+        let totalFine = 0;
+        let numberOfDelayedReturns = lateBooks.length;
+        let additionalPenalty = 0;
+
+        console.log("=== LIBRARY FINE CALCULATOR ===\n");
+        console.log(`Total Delayed Returns: ${numberOfDelayedReturns}`);
+        console.log("\n--- FINE BREAKDOWN ---\n");
+
+        /**
+         * Loop through each late book and calculate individual fines
+         * Fine rate depends on how late the book is
+         */
+        for (let i = 0; i < lateBooks.length; i++) {
+            let book = lateBooks[i];
+            let days = book.daysLate;
+            let bookFine = 0;
+            let ratePerDay = 0;
+
+            console.log(`Book ${i + 1}: "${book.bookName}"`);
+            console.log(`Days Late: ${days} days`);
+
+            /**
+             * Determine fine rate based on delay duration
+             * Longer delays have higher per-day rates
+             */
+            if (days >= 1 && days <= 5) {
+                ratePerDay = 10;
+                bookFine = days * ratePerDay;
+                console.log(`Rate: ₹${ratePerDay}/day (1-5 days bracket)`);
+            } else if (days >= 6 && days <= 10) {
+                ratePerDay = 20;
+                bookFine = days * ratePerDay;
+                console.log(`Rate: ₹${ratePerDay}/day (6-10 days bracket)`);
+            } else if (days >= 11) {
+                ratePerDay = 50;
+                bookFine = days * ratePerDay;
+                console.log(`Rate: ₹${ratePerDay}/day (11+ days bracket)`);
+            }
+
+            console.log(`Fine: ${days} × ₹${ratePerDay} = ₹${bookFine}`);
+            console.log("─────────────────────");
+            
+            // Add book fine to total
+            totalFine += bookFine;
+        }
+
+        /**
+         * Apply additional penalty for repeat offenders
+         * Users with more than 3 delayed returns get extra ₹200 penalty
+         */
+        console.log(`\nSubtotal Fine: ₹${totalFine}`);
+
+        if (numberOfDelayedReturns > 3) {
+            additionalPenalty = 200;
+            console.log(`\n⚠ REPEAT OFFENDER PENALTY`);
+            console.log(`You have ${numberOfDelayedReturns} delayed returns (> 3)`);
+            console.log(`Additional Penalty: ₹${additionalPenalty}`);
+            totalFine += additionalPenalty;
+        } else {
+            console.log(`\n✓ No additional penalty (${numberOfDelayedReturns} returns ≤ 3)`);
+        }
+
+        // Display final fine summary
+        console.log("\n=== FINE SUMMARY ===");
+        console.log(`Number of Late Books: ${numberOfDelayedReturns}`);
+        console.log(`Base Fine: ₹${totalFine - additionalPenalty}`);
+        console.log(`Additional Penalty: ₹${additionalPenalty}`);
+        console.log(`────────────────────`);
+        console.log(`TOTAL FINE: ₹${totalFine}`);
+        console.log("====================\n");
+
+        // Friendly reminder
+        if (totalFine > 0) {
+            console.log("⏰ Please return books on time to avoid fines!");
+        }
+    </script>
+</body>
+</html>
+
